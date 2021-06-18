@@ -4,7 +4,7 @@
   "description": "Decentralized Game Example",
   "scripts": {
     "serve": "sirv",
-    "start": "parcel index.html --open",
+    "start": "cd opgames && browserify near-connect.js -o bundle.js && cd ../ && parcel index.html --open",
     "build": "npm run clean && parcel build index.html --dist-dir ./dist",
     "clean": "rimraf ./dist ./parcel-cache"
   },

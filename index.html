@@ -6,17 +6,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script src="./js/phaser.min.js"></script> 
     <script src="./js/breakout.js"></script> 
-    <style type="text/css">
+    <style>
         body {
-            margin: 0;
-            padding: 0;
+                margin: 0;
+                padding: 0;
+            }
+
+            
+        #connect-near {
+            position: absolute;
+            top: 5px;
+            left: 5px;
         }
+
+        #btn-login-near {
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            background: #af1b9b;
+            outline: none;
+            color: #fff;
+        }
+
+        #btn-login-near:hover {
+            background: #b95aad;
+        }
+
     </style>
 </head>
 
 <body>
-
+    <div id="connect-near">
+		<button id="btn-login-near">Login to NEAR</button>
+	</div>
     <div id="phaser-example"></div>
-
+    <script src="./opgames/bundle.js"></script>
 </body>
 </html>
