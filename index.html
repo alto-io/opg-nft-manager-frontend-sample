@@ -16,7 +16,9 @@
         #connect-near {
             position: absolute;
             top: 5px;
-            left: 5px;
+            right: 5px;
+            display: flex;
+            flex-direction: column;
         }
 
         #btn-login-near {
@@ -31,12 +33,23 @@
             background: #b95aad;
         }
 
+        span{
+            padding: 0.5rem;
+        }
+
+        #acc-id {
+            margin-top: 1rem 0 0.4rem 0;
+        }
+
     </style>
 </head>
 
 <body>
     <div id="connect-near">
-		<button id="btn-login-near">Login to NEAR</button>
+		<button id="btn-login-near"></button>
+
+        <span id="acc-id"></span>
+        <span id="acc-bal"></span>
 	</div>
     <div id="phaser-example"></div>
     <script src="./opgames/bundle.js"></script>

@@ -66,6 +66,14 @@ module.exports = class NearProvider {
 
         this.#userAccount = null
         console.log("User logged out")
+        window.location.reload()
     }
 
+    isSignedIn = function() {
+        return this.#wallet.isSignedIn()
+    }
+
+    getAccount = function() {
+        return this.#userAccount
+    }
 }

@@ -2275,20 +2275,35 @@ module.exports = class NearProvider {
 
         this.#userAccount = null
         console.log("User logged out")
+        window.location.reload()
     }
 
+    isSignedIn = function() {
+        return this.#wallet.isSignedIn()
+    }
+
+    getAccount = function() {
+        return this.#userAccount
+    }
 }
 },{"near-api-js":36}],7:[function(require,module,exports){
 const nearAPI = require('near-api-js')
 const NearProvider = require('./NearProvider')
+const nearConnectButton = document.getElementById('btn-login-near')
 
 const np = new NearProvider();
 
 // init near
-np.init();
+np.init().then(() => {
+    nearConnectButton.innerHTML = np.isSignedIn() ? 'Log out NEAR' : 'Login NEAR'
+    const {accountId, balance} = np.getAccount()
+    const isSignedIn = np.isSignedIn()
+    document.getElementById('acc-id').innerText = isSignedIn ? `id: ${accountId}` : 'id: ...' 
+    document.getElementById('acc-bal').innerText = isSignedIn ? `bal: ${balance}` : 'bal: ...' 
+});
 
-document.getElementById("btn-login-near").addEventListener("click", () => {
-       np.signInNear()
+nearConnectButton.addEventListener('click', () => {
+    np.isSignedIn() ? np.signOutNear() : np.signInNear()
 })
 },{"./NearProvider":6,"near-api-js":36}],8:[function(require,module,exports){
 'use strict'
