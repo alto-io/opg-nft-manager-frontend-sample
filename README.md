@@ -7,6 +7,7 @@ Installation
 <!-- If you are using Gitpod, you can skip this section! Your environment is already set up 🎉 -->
 
   * Make sure you have Node.js ≥ 12 installed (https://nodejs.org)
+  * You also need to install `browserify` by running `npm install -g browserify`
   * Install dependencies: `npm install`
   * Also go inside `opgames` folder and also do `npm install`
 
