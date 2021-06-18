@@ -4,6 +4,10 @@ const nearConnectButton = document.getElementById('btn-login-near')
 
 const np = new NearProvider();
 
+function setDetails() {
+
+}
+
 // init near
 np.init().then(() => {
     nearConnectButton.innerHTML = np.isSignedIn() ? 'Log out NEAR' : 'Login NEAR'

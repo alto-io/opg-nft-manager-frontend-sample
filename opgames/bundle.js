@@ -2210,14 +2210,9 @@ process.umask = function() { return 0; };
 const nearAPI = require('near-api-js')
 
 module.exports = class NearProvider {
-    // nearAPI
     #userAccount = null
     #contract = null
     #wallet = null 
-
-    // constructor(nearAPI) {
-    //     this.nearAPI = nearAPI
-    // }
 
     init = async function() {
         console.log("Near Initializing")
@@ -2274,6 +2269,8 @@ module.exports = class NearProvider {
         await this.#wallet.signOut()
 
         this.#userAccount = null
+        this.init()
+
         console.log("User logged out")
         window.location.reload()
     }
@@ -2283,7 +2280,14 @@ module.exports = class NearProvider {
     }
 
     getAccount = function() {
-        return this.#userAccount
+        if (!this.#userAccount) {
+            return {
+                accountId: null,
+                balance: null
+            }
+        } else {
+            return this.#userAccount
+        }
     }
 }
 },{"near-api-js":36}],7:[function(require,module,exports){
@@ -2292,6 +2296,10 @@ const NearProvider = require('./NearProvider')
 const nearConnectButton = document.getElementById('btn-login-near')
 
 const np = new NearProvider();
+
+function setDetails() {
+
+}
 
 // init near
 np.init().then(() => {
